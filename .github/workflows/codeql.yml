@@ -16,7 +16,7 @@ on: [workflow_dispatch]
 jobs:
   analyze:
     name: Analyze
-    runs-on: [self-hosted, Linux]
+    runs-on: Linux
     permissions:
       actions: read
       contents: read
