@@ -50,5 +50,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Build docker images
         run: |
-          docker ps
+          docker build --help
           docker build -t < .devcontainer/Dockerfile
