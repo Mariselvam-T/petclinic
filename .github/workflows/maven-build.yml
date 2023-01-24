@@ -51,4 +51,4 @@ jobs:
       - name: Build docker images
         run: |
           docker build --help
-          docker build mybuildartifact -t myspringapp
+          docker build -f ./.devcontainer/Dockerfile -t myspringapp
