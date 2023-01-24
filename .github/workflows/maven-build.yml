@@ -13,7 +13,8 @@ on: [workflow_dispatch]
 jobs:
   build:
 
-    runs-on: [self-hosted, Linux]
+    runs-on: Ubuntu-Latest
+    #[self-hosted, Linux]
     strategy:
       matrix:
         java: [ '17' ]
