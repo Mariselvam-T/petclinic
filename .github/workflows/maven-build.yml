@@ -49,4 +49,4 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Build docker images
-        run: docker build -t local < '${{ github.workspace }}/spring-petclinic-3.0.0-SNAPSHOT.jar'
+        run: docker build -t local < .devcontainer/Dockerfile
