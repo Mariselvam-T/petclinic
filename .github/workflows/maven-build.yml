@@ -34,4 +34,19 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: mybuildartifact
-          path: ./docker.io/library/
+          path: '${{ github.workspace }}/target/*.jar'
+  deploy:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: mybuildartifact
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Build docker images
+        run: docker build -t local < spring-petclinic-3.0.0-SNAPSHOT.jar
