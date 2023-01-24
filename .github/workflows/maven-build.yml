@@ -46,9 +46,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: mybuildartifact
+          path: ${{ github.workspace }}/target/
       - name: Check out code
         uses: actions/checkout@v2
       - name: Build docker images
         run: |
           docker build --help
-          docker build -f ./.devcontainer/Dockerfile -t myspringapp
+          docker build -f .devcontainer/Dockerfile
