@@ -28,8 +28,8 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build with Maven Wrapper
-        #run: ./mvnw -B package
-        run: ./mvnw spring-boot:build-image
+        run: ./mvnw -B package
+        #run: ./mvnw spring-boot:build-image
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -46,7 +46,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: mybuildartifact
-          path: ${{ github.workspace }}/target/
+          #path: ${{ github.workspace }}/target/
+      - name: Test Artifact download
+        run: |
+          PWD
+          ls -R
       - name: Check out code
         uses: actions/checkout@v2
       - name: Build docker images
@@ -54,4 +58,4 @@ jobs:
           #docker build --help
           #docker build -f .devcontainer/Dockerfile
           #docker run -p 9090:8080 -t spring-petclinic:3.0.0-SNAPSHOT
-          docker build ${{ github.workspace }}/target/
+          docker build .
