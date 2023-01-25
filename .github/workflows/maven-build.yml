@@ -62,3 +62,4 @@ jobs:
           docker build . -t myapp/petclinic:latest
           docker images
           docker run -d -p 8080:8080 myapp/petclinic:latest
+          curl localhost:8080
