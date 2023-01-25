@@ -50,6 +50,8 @@ jobs:
       - name: Test Artifact download
         run:  |
           pwd
+          ls
+          ls /target/
           ls -R
       - name: Check out code
         uses: actions/checkout@v2
