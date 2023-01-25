@@ -48,9 +48,7 @@ jobs:
           name: mybuildartifact
           #path: ${{ github.workspace }}/target/
       - name: Test Artifact download
-        run: |
-          PWD
-          ls -R
+        run:  ls -R
       - name: Check out code
         uses: actions/checkout@v2
       - name: Build docker images
