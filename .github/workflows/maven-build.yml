@@ -53,4 +53,5 @@ jobs:
         run: |
           #docker build --help
           #docker build -f .devcontainer/Dockerfile
-          docker run -p 9090:8080 -t spring-petclinic:3.0.0-SNAPSHOT
+          #docker run -p 9090:8080 -t spring-petclinic:3.0.0-SNAPSHOT
+          docker build ${{ github.workspace }}/target/
