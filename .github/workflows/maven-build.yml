@@ -62,4 +62,5 @@ jobs:
           docker build . -t myapp/petclinic:latest
           docker images
           docker run -d -p 8080:8080 myapp/petclinic:latest
-          curl http://localhost:8080/home
+          #curl http://localhost:8080/home
+          openssl s_client -connect localhost:8080
